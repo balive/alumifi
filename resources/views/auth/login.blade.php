@@ -4,7 +4,7 @@
 <!--begin::Head-->
 <head>
     <meta charset="utf-8" />
-    <title>Dashboard |  Login</title>
+    <title>aLumifi AI Bias Checking app |  Login</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="canonical" href="https://keenthemes.com/metronic" />
@@ -61,7 +61,7 @@
                 <!--begin::Signin-->
                 <div class="login-form">
                     <!--begin::Form-->
-                    <img style="width: 150px" class="mb-10" src="{{ asset('alumifi-logo.png') }}">
+                    <img style="width: 150px" class="mb-10" src="{{ asset('alumifi-logo2.png') }}">
 
                     <!--begin::Title-->
                     <div class="pb-10 pb-lg-15">

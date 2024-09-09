@@ -72,6 +72,7 @@
 
                                 </li>
 
+                                <?php if(auth()->guard()->check()): ?>
                                 <?php $__currentLoopData = auth()->user()->conversations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $conversation): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <li class="menu-item" aria-haspopup="true">
                                         <a  href="<?php echo e(route('conversation.show' , $conversation['id'])); ?>" class="text-muted   font-weight-bold side-link">
@@ -95,12 +96,14 @@
 
                                     </li>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php endif; ?>
 
 
 
 
 
                                <?php if(isset(auth()->user()->type) && auth()->user()->type == 'admin'): ?>
+
 
 
                                     <li class="menu-item" aria-haspopup="true">

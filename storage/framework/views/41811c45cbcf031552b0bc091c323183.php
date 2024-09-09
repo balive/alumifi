@@ -4,7 +4,7 @@
 <!--begin::Head-->
 <head>
     <meta charset="utf-8" />
-    <title>  Register </title>
+    <title>  aLumifi AI Bias Checking app | Register </title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="canonical" href="https://keenthemes.com/metronic" />
@@ -28,6 +28,7 @@
         body {
             position: inherit;
             display: grid;
+            background: #231f20;
 
         }
         .login.login-3 .login-content{
@@ -162,7 +163,7 @@
                         <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
                             <!--begin::Title-->
 
-                            <img style="width: 150px" class="mb-10" src="<?php echo e(asset('alumifi-logo.png')); ?>">
+                            <img style="width: 150px" class="mb-10" src="<?php echo e(asset('alumifi-logo2.png')); ?>">
 
                             <div class="pb-10 pb-lg-15">
                                 <h3 class="font-weight-bolder text-dark display5"> Create Account </h3>

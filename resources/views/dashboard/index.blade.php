@@ -119,23 +119,29 @@
             <!--begin::Info-->
             <div class="d-flex align-items-center mr-1">
                 <!--begin::Page Heading-->
-                <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <div class="d-block align-items-baseline flex-wrap mr-5">
                     <!--begin::Page Title-->
                     @if(!isset(auth()->user()->type) || (isset(auth()->user()->type) && auth()->user()->type == 'client'))
-                        <img style="width: 125px" class="mb-5" src="{{ asset('alumifi-logo.png') }}">
+                        <img style="width: 125px" class="mb-5" src="{{ asset('alumifi-logo2.png') }}">
                     @else
                         <h2 style="color: #3a384e" class="d-flex align-items-center  font-weight-bolder my-1 mr-3">
                             aLumifi.ai</h2>
                     @endif
 
                     @if(isset(auth()->user()->type) && auth()->user()->type == "client" && isset($conversation) && $conversation->id)
-                    <a href="#" class="font-size-sm ml-10 mb-6" data-toggle="modal" data-target="#add_item" >
-                            <span class="svg-icon svg-icon-md svg-icon-white">
-                                <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Add-user.svg-->
-                                <i style="font-size: 19px" class="flaticon2-gear  text-white"></i>
-                                <!--end::Svg Icon-->
-                            </span>
-                    </a>
+
+                        <div class="recheck_section">
+                            <a href="#" style="color: #019cc1" class="font-size-sm mt-5 mb-6" data-toggle="modal" data-target="#add_item" >
+                                <span class="svg-icon svg-icon-md svg-icon-white mr-3">
+                                    <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Add-user.svg-->
+                                    <i style="font-size: 19px" class="flaticon2-gear  text-white"></i>
+                                    <!--end::Svg Icon-->
+                                </span>
+
+                                Same URL Re-Check
+                            </a>
+                        </div>
+
                     @endif
                     <!--end::Page Title-->
                 </div>
@@ -220,8 +226,7 @@
                                     {{--<span  style="margin: auto;width: 50%;color: #cacaca;position: absolute;top: 7px;left: 43%;">{{ Carbon\Carbon::now()->format('g:i A') }}</span>--}}
                                     <div id="messages_container" style="" class=" mt-2" >
 
-                                        @if(request()->segment(3) == '')
-                                            <div class="data_section mt-40">
+                                        <div class="data_section mt-40   @if(request()->segment(3) != '') d-none @endif">
                                             <!--begin::Form-->
                                             <div class="col-12 col-md-12  mb-5">
                                                 <br>
@@ -231,7 +236,7 @@
                                             <div class="col-12 col-md-12  mb-5">
                                                 <br>
                                                 <label  class=" form-control-label text-white">URL</label>
-                                                <input style="color:#019cc1; border-color: #019cc1;  background: transparent" type="text" class=" form-control  form-control-solid url_input" name="name" value="">
+                                                <input style="color:#019cc1; border-color: #019cc1;  background: transparent" type="text" class=" form-control  form-control-solid url_input" name="name" value="{{ isset($conversation) ? $conversation->url : null  }}">
                                             </div>
 
                                             <div class="col-12 col-md-12  mb-5">
@@ -266,7 +271,7 @@
                                                 <!--end::Form-->
                                             </div>
                                         </div>
-                                        @endif
+
 
                                         <div id="gpt_messages" class=" @if(request()->segment(3) == '') mt-7 @endif ">
 
@@ -292,6 +297,15 @@
                                                                 <button class="twitter-btn" data-target="message_{{ $loop->index }}" style="position: absolute; left: 62px;  background-color: transparent; color: white; border: none; border-radius: 0%; padding: 0px; cursor: pointer;">
                                                                     <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/x-social-media-white-icon.png" width="13" height="13" alt="X Social Media White icon in SVG, PNG formats" title="X Social Media White icon">
                                                                 </button>
+
+                                                                <button href="#"  data-toggle="modal" data-target="#add_item" style="position: absolute; left: 87px;  background-color: transparent; color: white; border: none; border-radius: 0%; padding: 0px; cursor: pointer;">
+
+                                                                   <span class="svg-icon svg-icon-sm svg-icon-white mr-3">
+                                                                        <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Add-user.svg-->
+                                                                        <i style="font-size: 16px" class="flaticon2-gear  text-white"></i>
+                                                                                                           <!--end::Svg Icon-->
+                                                                    </span>
+                                                                </button>
                                                                 {{--<button class="linkedin-btn" data-target="message_{{ $loop->index }}" style="position: absolute; left: 90px;  background-color: transparent; color: white; border: none; border-radius: 0%; padding: 2px; cursor: pointer;">--}}
                                                                     {{--<i style="font-size: 13px" class="icon-x la text-white socicon-linkedin"></i>--}}
                                                                 {{--</button>--}}
@@ -299,7 +313,7 @@
                                                         </div>
                                                     </div>
                                                 @endforeach
-                                                @endif
+                                            @endif
                                         </div>
                                         <!--end::Messages-->
                                     </div>
@@ -335,7 +349,7 @@
     <!--end::Entry-->
 
     @if(isset($conversation->id))
-    <div class="modal fade" id="add_item" tabindex="-1" role="dialog" aria-labelledby="exampleModalSizeSm" aria-hidden="true">
+        <div class="modal fade" id="add_item" tabindex="-1" role="dialog" aria-labelledby="exampleModalSizeSm" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-md" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -375,13 +389,11 @@
                         </select>
                     </div>
                     <div class="card-footer">
-                        <button style="background: #019cc1" id="btnFetch_edit" type="button" class=" btn btn-primary mr-2" >Fetch</button>
+                        <button style="background: #019cc1" id="btnFetch_edit" type="button" class=" btn btn-primary mr-2" >Change Perspective</button>
                     </div>
                     <!--end::Form-->
                 </div>
-
             </div>
-
         </div>
     </div>
     @endif
@@ -389,7 +401,6 @@
 @endsection
 
 @section('scripts')
-
 
     <script src="https://static.linkedin.com/scds/platform/buttons/in.js" async defer></script>
 
@@ -778,10 +789,15 @@
                             <path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path>
                         </svg>
                     </button>
-                    <button class="twitter-btn" data-target="${uniqueId}" style="position: absolute; left: 44px;bottom:-19px;   background-color: transparent; color: white; border: none; border-radius: 0%; padding: 3px; cursor: pointer;">
+                    <button class="twitter-btn" data-target="${uniqueId}" style="position: absolute; left: 42px;bottom:-19px;   background-color: transparent; color: white; border: none; border-radius: 0%; padding: 3px; cursor: pointer;">
                         <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/x-social-media-white-icon.png" width="13" height="13" alt="X Social Media White icon in SVG, PNG formats" title="X Social Media White icon">
                     </button>
 
+                    <button href="#"  data-toggle="modal" data-target="#add_item" style="position: absolute; left: 73px;bottom:-19px;  background-color: transparent; color: white; border: none; border-radius: 0%; padding: 0px; cursor: pointer;">
+                        <span class="svg-icon svg-icon-sm svg-icon-white mr-3">
+                            <i style="font-size: 16px" class="flaticon2-gear  text-white"></i>
+                        </span>
+                    </button>
 
                 </div>
             </div>

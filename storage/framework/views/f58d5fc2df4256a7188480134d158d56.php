@@ -3,7 +3,7 @@
 <!--begin::Head-->
 <head>
     <meta charset="utf-8" />
-    <title>Dashboard</title>
+    <title>aLumifi AI Bias Checking app</title>
     <meta name="description" content="Updates and statistics" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="canonical" href="https://keenthemes.com/metronic" />
@@ -329,7 +329,7 @@
     <div id="kt_header_mobile" class="header-mobile">
         <!--begin::Logo-->
         <a href="<?php echo e(URL::to('/')); ?>">
-            <img alt="Logo" src="<?php echo e(asset('ai_white.png')); ?>" class="logo-default max-h-30px" />
+            <img alt="Logo" src="<?php echo e(asset('alumifi-logo2.png')); ?>" class="logo-default max-h-30px" />
         </a>
         <!--end::Logo-->
         <!--begin::Toolbar-->

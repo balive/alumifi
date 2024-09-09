@@ -159,7 +159,7 @@ class HomeController extends Controller
             $prompt = "You are an expert $bias expert and consultant who is biased towards $bias, you are helpful and you answer only the questions related to the $bias bias , please re-write this article from thr $bias bias perspective 
                         here is the article : [$information]
                         
-                        - provide assessment from the original article, to ascertain its current bias in this regard, provide the bias ratings in percentage...here is the list of the all the biases u should consider and provide how close the aritcle is to each bias in percentage:
+                        - provide assessment from the original article a in bullet point list, to ascertain its current bias in this regard, provide the bias ratings in percentage...here is the list of the all the biases u should consider and provide how close the aritcle is to each bias in percentage:
                          Left (for context : liberal, democrat)
 Socialist
 Libertarian
@@ -176,6 +176,8 @@ Crypto (for context : bitcoin)
 
                         - do an actual critique of this article, to judge it, bring that full $bias bias to that article, and explain according to $bias that his position is not looked upon favorably and provide a nice intro before diving deeper...
 
+                        - add #019cc1 as font color as inline style for the heading of the assessment and critique.
+                        
                         (please return your answer in organized html code and use these tags <h6> for heading , <p> for sentences , & <br> between each sentence if needed)
                         
                         return in json in this format {'html_assessment' : '' , 'html_critique' : ''} 

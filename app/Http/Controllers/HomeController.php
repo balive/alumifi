@@ -159,24 +159,24 @@ class HomeController extends Controller
             $prompt = "You are an expert $bias expert and consultant who is biased towards $bias, you are helpful and you answer only the questions related to the $bias bias , please re-write this article from thr $bias bias perspective 
                         here is the article : [$information]
                         
-                        - provide assessment from the original article a in bullet point list, to ascertain its current bias in this regard, provide the bias ratings in percentage...here is the list of the all the biases u should consider and provide how close the aritcle is to each bias in percentage:
+                        - provide assessment from the original article a in bullet point list, to ascertain its current bias in this regard, provide the bias ratings in percentage with nice intro at the beginning...here is the list of the all the biases u should consider and provide how close the article is to each bias in percentage:
                          Left (for context : liberal, democrat)
-Socialist
-Libertarian
-Right (for context :  conservative, Republican)
-Christian
-Islamic
-Buddhist
-Agnostic (for context :  Atheist leaning)
-Libertarian
-Scientific (for context : academic/materialist)
-Critical Thinking (for context :  conspiracy)
-Green (for context : environmentalist)
-Crypto (for context : bitcoin)
+                        Socialist
+                        Libertarian
+                        Right (for context :  conservative, Republican)
+                        Christian
+                        Islamic
+                        Buddhist
+                        Agnostic (for context :  Atheist leaning)
+                        Libertarian
+                        Scientific (for context : academic/materialist)
+                        Critical Thinking (for context :  conspiracy)
+                        Green (for context : environmentalist)
+                        Crypto (for context : bitcoin)
 
                         - do an actual critique of this article, to judge it, bring that full $bias bias to that article, and explain according to $bias that his position is not looked upon favorably and provide a nice intro before diving deeper...
 
-                        - add #019cc1 as font color as inline style for the heading of the assessment and critique.
+                        - display the heading of the assessment and critique with this html code <h4 style='color: #019cc1 !important;'>heading name</h4> and provide a nice intro underneath the heading  before diving deeper 
                         
                         (please return your answer in organized html code and use these tags <h6> for heading , <p> for sentences , & <br> between each sentence if needed)
                         

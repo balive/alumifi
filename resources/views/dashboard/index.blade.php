@@ -298,7 +298,7 @@
                                                                     <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/x-social-media-white-icon.png" width="13" height="13" alt="X Social Media White icon in SVG, PNG formats" title="X Social Media White icon">
                                                                 </button>
 
-                                                                <button href="#"  data-toggle="modal" data-target="#add_item" style="position: absolute; left: 87px;  background-color: transparent; color: white; border: none; border-radius: 0%; padding: 0px; cursor: pointer;">
+                                                                <button href="#" class="changePerBtn"  data-toggle="modal" data-target="#add_item" style="position: absolute; left: 87px;  background-color: transparent; color: white; border: none; border-radius: 0%; padding: 0px; cursor: pointer;">
 
                                                                    <span class="svg-icon svg-icon-sm svg-icon-white mr-3">
                                                                         <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Add-user.svg-->
@@ -348,8 +348,7 @@
     </div>
     <!--end::Entry-->
 
-    @if(isset($conversation->id))
-        <div class="modal fade" id="add_item" tabindex="-1" role="dialog" aria-labelledby="exampleModalSizeSm" aria-hidden="true">
+    <div class="modal fade" id="add_item" tabindex="-1" role="dialog" aria-labelledby="exampleModalSizeSm" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-md" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -363,7 +362,7 @@
                     <div class="col-12 col-md-12 mb-5">
                         <br>
                         <label class=" form-control-label">URL</label>
-                        <input type="text" class="form-control  form-control-solid " name="name" value="{{ $conversation->url }}" disabled >
+                        <input type="text" class="form-control  form-control-solid  url_input_edit" name="name" value="{{ isset($conversation) ?  $conversation->url  : '' }}" disabled >
                     </div>
 
                     <div class="col-12 col-md-12  mb-5">
@@ -396,7 +395,7 @@
             </div>
         </div>
     </div>
-    @endif
+
 
 @endsection
 
@@ -585,6 +584,12 @@
                 _sendGPTMessage()
                 // }
             }
+        });
+
+        $('body').on('click' , '.changePerBtn', function () {
+            var url                     = $('.url_input').val();
+
+            $('.url_input_edit').val(url)
         });
 
         $('body').on('click' , '.btn_send_gpt', function () {
@@ -793,7 +798,7 @@
                         <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/x-social-media-white-icon.png" width="13" height="13" alt="X Social Media White icon in SVG, PNG formats" title="X Social Media White icon">
                     </button>
 
-                    <button href="#"  data-toggle="modal" data-target="#add_item" style="position: absolute; left: 73px;bottom:-19px;  background-color: transparent; color: white; border: none; border-radius: 0%; padding: 0px; cursor: pointer;">
+                    <button href="#" class="changePerBtn"   data-toggle="modal" data-target="#add_item" style="position: absolute; left: 73px;bottom:-19px;  background-color: transparent; color: white; border: none; border-radius: 0%; padding: 0px; cursor: pointer;">
                         <span class="svg-icon svg-icon-sm svg-icon-white mr-3">
                             <i style="font-size: 16px" class="flaticon2-gear  text-white"></i>
                         </span>

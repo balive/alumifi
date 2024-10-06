@@ -24,10 +24,10 @@
         }
 
         .form-control:focus{
-            border: none !important;
+            /*border:  !important;*/
         }
 
-@if(!isset(auth()->user()->type) || (isset(auth()->user()->type) && auth()->user()->type == 'client'))
+        @if(!isset(auth()->user()->type) || (isset(auth()->user()->type) && auth()->user()->type == 'client'))
 
         .header-mobile-fixed .header-mobile{
 
@@ -122,27 +122,25 @@
                 <div class="d-block align-items-baseline flex-wrap mr-5">
                     <!--begin::Page Title-->
                     @if(!isset(auth()->user()->type) || (isset(auth()->user()->type) && auth()->user()->type == 'client'))
-                        <img style="width: 125px" class="mb-5" src="{{ asset('alumifi-logo2.png') }}">
+                        <img style="width: 125px" class="mb-5 header-logo" src="{{ asset('alumifi-logo2.png') }}">
                     @else
                         <h2 style="color: #3a384e" class="d-flex align-items-center  font-weight-bolder my-1 mr-3">
                             aLumifi.ai</h2>
                     @endif
 
-                    @if(isset(auth()->user()->type) && auth()->user()->type == "client" && isset($conversation) && $conversation->id)
 
-                        <div class="recheck_section">
-                            <a href="#" style="color: #019cc1" class="font-size-sm mt-5 mb-6" data-toggle="modal" data-target="#add_item" >
+
+                    <div class="recheck_section  @if(isset(auth()->user()->type) && auth()->user()->type == "client" && isset($conversation) && $conversation->id) @else d-none @endif">
+                        <a href="#" style="color: #019cc1" class="font-size-sm mt-5 mb-6" data-toggle="modal" data-target="#add_item" >
                                 <span class="svg-icon svg-icon-md svg-icon-white mr-3">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Add-user.svg-->
                                     <i style="font-size: 19px" class="flaticon2-gear  text-white"></i>
                                     <!--end::Svg Icon-->
                                 </span>
 
-                                Same URL Re-Check
-                            </a>
-                        </div>
-
-                    @endif
+                            Same URL Re-Check
+                        </a>
+                    </div>
                     <!--end::Page Title-->
                 </div>
                 <!--end::Page Heading-->
@@ -230,16 +228,16 @@
                                             <!--begin::Form-->
                                             <div class="col-12 col-md-12  mb-5">
                                                 <br>
-                                                <h3  class=" form-control-label text-white">Paste in your website URL you want aLumified</h3>
+                                                <h3  class=" form-control-label text-white">STEP 1: Enter URL you want bias checked</h3>
                                             </div>
 
                                             <div class="col-12 col-md-12  mb-5">
                                                 <br>
-                                                <label  class=" form-control-label text-white">URL</label>
+                                                <label  class=" form-control-label text-white"> URL</label>
                                                 <input style="color:#019cc1; border-color: #019cc1;  background: transparent" type="text" class=" form-control  form-control-solid url_input" name="name" value="{{ isset($conversation) ? $conversation->url : null  }}">
                                             </div>
 
-                                            <div class="col-12 col-md-12  mb-5">
+                                            <div class="col-12 col-md-12  mb-5 perspective_select d-none">
                                                 <br>
                                                 <label  class="form-control-label text-white">Select Perspective</label>
                                                 <select style="color:#019cc1; border-color: #019cc1;  background: transparent" id="bias_select" class="form-control">
@@ -267,7 +265,7 @@
                                                 <textarea rows="5" id="scraped_data"  type="text" placeholder="your fetched data shows up here" class="form-control form-control-solid" ></textarea>
                                             </div>
                                             <div class="ml-3">
-                                                <button style="border-color: white; background: transparent" id="btnFetch" type="button" class=" btn btn-success mr-2" >Go!</button>
+                                                <button style="border-color: white; background: transparent" id="btnFetch" type="button" class=" btn btn-success mr-2" >BIAS Check!</button>
                                                 <!--end::Form-->
                                             </div>
                                         </div>
@@ -324,7 +322,7 @@
                                 <div class="align-items-center  btn_send_wrap @if(request()->segment(3) == '') d-none @endif" style="">
                                     <!--begin::Compose-->
                                     <div class="input-group mb-3">
-                                        <input type="text" style="border:none ;height: 57px;    padding: 21px; border-top-left-radius: 17px; border-bottom-left-radius: 17px; background: #2f2f2f;  color: white;"  class="custom-placeholder gpt_msg_input form-control" placeholder="Type here to ask questions on this perspective">
+                                        <input type="text" style="border:none ;height: 57px;    padding: 21px; border-top-left-radius: 17px; border-bottom-left-radius: 17px; background: #2f2f2f;  color: white;"  class="custom-placeholder gpt_msg_input form-control" placeholder="Ask more on this new perspective on this article">
 
                                         <div class="input-group-append">
                                             <span style="border-top-right-radius: 17px;border-bottom-right-radius: 17px;cursor: pointer; background-color: #2f2f2f; border: none" class="btn_send_gpt input-group-text">
@@ -484,6 +482,7 @@
                             $('#scraped_data').val(response.data);
 
                             _sendGPTMessage(`aLumified <a target="_blank" href="${url}">URL</a> review below as from the ${bias} perspective` , bias, 1);
+                            // _sendGPTMessage(`<!--aLumified <a target="_blank" href="${url}">URL</a>-->` , bias, 1);
 
                             $('#btnFetch_edit').html('Fetch data');
 
@@ -522,7 +521,7 @@
             const bias                  = $('#bias_select :selected').val();
             var url                     = $('.url_input').val();
 
-            if(bias !== "0" && url !== ""){
+            if(url !== ""){
 
                 $('#btnFetch').html('<div class="spinner spinner-lg spinner-white spinner-center p-4"></div>');
 
@@ -538,13 +537,15 @@
 
                             $('#scraped_data').val(response.data);
 
-                            _sendGPTMessage(`aLumified <a target="_blank" href="${url}">URL</a> review below as from the ${bias} perspective` , '', 1);
+                            // _sendGPTMessage(`aLumified <a target="_blank" href="${url}">URL</a> review below as from the ${bias} perspective` , bias, 1);
+                            _sendGPTMessage(`aLumified <a target="_blank" href="${url}">URL</a>` , bias, 1);
 
                             $('#btnFetch').html('Fetch data');
 
                             $('.data_section').addClass('d-none');
 
                             $('.btn_send_wrap').removeClass('d-none');
+
                         }
                         else {
                             alert(response.data)
@@ -715,6 +716,14 @@
                                 $('.btn_send_gpt').html(' <div class="circular-icon ">\n' +
                                     '                                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32" class="icon-xl"><path fill="currentColor" fill-rule="evenodd" d="M15.192 8.906a1.143 1.143 0 0 1 1.616 0l5.143 5.143a1.143 1.143 0 0 1-1.616 1.616l-3.192-3.192v9.813a1.143 1.143 0 0 1-2.286 0v-9.813l-3.192 3.192a1.143 1.143 0 1 1-1.616-1.616z" clip-rule="evenodd"></path></svg>\n' +
                                     '                                                </div>');
+
+                                if(rewrite && bias === "0"){
+                                    $('#add_item').modal('show');
+                                    $('#exampleModalLabel').html("STEP 2: Rework Article from a New Perspective")
+                                    $('#btnFetch_edit').html("START NEW PERSPECTIVE!");
+                                    $('.url_input_edit').val($('.url_input').val())
+                                    $('.recheck_section').removeClass('d-none');
+                                }
 
                                 is_processing = false;
                             }else {

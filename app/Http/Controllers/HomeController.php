@@ -62,9 +62,12 @@ class HomeController extends Controller
 
         $analyzed_data = $this->gptAnalyze($bias,$question,$scraped_data,$gpt_history,$rewrite);
 
-        if($rewrite){
+        if($rewrite && $bias != 0){
             $answer = $analyzed_data['html_assessment'] . $analyzed_data['html_critique'];
-        }else {
+        }elseif($rewrite && $bias == 0) {
+            $answer = $analyzed_data['html_assessment'];
+        }
+        else {
             $answer = $analyzed_data['html'];
         }
 
@@ -93,7 +96,12 @@ class HomeController extends Controller
 
                 $conversation = Conversation::find($conversation_id);
 
-                $answer = $conversation->assessment . $analyzed_data['html_critique'];
+                if($bias != 0){
+                    $answer = $conversation->assessment . $analyzed_data['html_critique'];
+
+                }else {
+                    $answer = $conversation->assessment;
+                }
             }
 
             Message::create([
@@ -155,11 +163,11 @@ class HomeController extends Controller
 
         $result = null;
         $gpt = new ChatGPT(isset($settings['engine']) ? $settings['engine'] :'gpt-4o-mini' );
-        if($rewrite){
+        if($rewrite && $bias != 0){
             $prompt = "You are an expert $bias expert and consultant who is biased towards $bias, you are helpful and you answer only the questions related to the $bias bias , please re-write this article from thr $bias bias perspective 
                         here is the article : [$information]
                         
-                        - provide assessment from the original article a in bullet point list, to ascertain its current bias in this regard, provide the bias ratings in percentage with nice intro at the beginning...here is the list of the all the biases u should consider and provide how close the article is to each bias in percentage:
+                        - provide assessment from the original article a in bullet point list, to ascertain its current bias in this regard, provide the bias ratings in percentage with nice intro at the beginning...here is the list of the all the biases u should consider and provide how close the article is to each bias in percentage, and make sure that total percentage for all the perspectives is 100%:
                          Left (for context : liberal, democrat)
                         Socialist
                         Libertarian
@@ -183,7 +191,37 @@ class HomeController extends Controller
                         return in json in this format {'html_assessment' : '' , 'html_critique' : ''} 
                         ";
 
-        }else {
+        }
+        else if($rewrite && $bias == 0){
+
+            $prompt = " please re-write this article  
+                        here is the article : [$information]
+                        
+                        - provide assessment from the original article a in bullet point list, to ascertain its current bias in this regard, provide the bias ratings in percentage with nice intro at the beginning...here is the list of the all the biases u should consider and provide how close the article is to each bias in percentage, and make sure that total percentage for all the perspectives is 100%:
+                         Left (for context : liberal, democrat)
+                        Socialist
+                        Libertarian
+                        Right (for context :  conservative, Republican)
+                        Christian
+                        Islamic
+                        Buddhist
+                        Agnostic (for context :  Atheist leaning)
+                        Libertarian
+                        Scientific (for context : academic/materialist)
+                        Critical Thinking (for context :  conspiracy)
+                        Green (for context : environmentalist)
+                        Crypto (for context : bitcoin)
+
+
+                        - display the heading of the assessment with this html code <h4 style='color: #019cc1 !important;'>heading name</h4> and provide a nice intro underneath the heading  before diving deeper 
+                        
+                        (please return your answer in organized html code and use these tags <h6> for heading , <p> for sentences , & <br> between each sentence if needed)
+                        
+                        return in json in this format {'html_assessment' : ''} 
+                        ";
+
+        }
+        else {
             $prompt = "You are an expert $bias expert and consultant who is biased towards $bias, you are helpful and you answer the questions from the $bias bias only, you pick the reliable answer from the provided information and answer in your professional way, and your responses are returned in an organized html code
                    
                        please follow the following instructions :

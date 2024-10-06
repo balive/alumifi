@@ -291,6 +291,7 @@
 
             }
 
+
         }
 
         @media (min-width: 992px){
@@ -308,6 +309,24 @@
                 padding-left: 70px !important;
                 transition: all 0.3s ease;
             }
+
+
+
+
+
+        }
+        @media (max-width: 992px){
+
+            .header-logo{
+
+                display: none !important;
+            }
+
+            #bodyContainer{
+
+                height: 80% !important;
+            }
+
 
 
 

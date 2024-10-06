@@ -61,7 +61,9 @@
                 <!--begin::Signin-->
                 <div class="login-form">
                     <!--begin::Form-->
-                    <img style="width: 150px" class="mb-10" src="<?php echo e(asset('alumifi-logo2.png')); ?>">
+                    <a href="<?php echo e(URL::to('/')); ?>">
+                        <img style="width: 150px" class="mb-10" src="<?php echo e(asset('alumifi-logo2.png')); ?>">
+                    </a>
 
                     <!--begin::Title-->
                     <div class="pb-10 pb-lg-15">
@@ -120,8 +122,8 @@ if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
                             <span class="invalid-feedback" role="alert">
-                                                <strong><?php echo e($message); ?></strong>
-                                            </span>
+                                <strong><?php echo e($message); ?></strong>
+                            </span>
                             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;

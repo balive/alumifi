@@ -163,8 +163,9 @@
                         <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
                             <!--begin::Title-->
 
-                            <img style="width: 150px" class="mb-10" src="{{ asset('alumifi-logo2.png') }}">
-
+                            <a href="{{ URL::to('/') }}">
+                                <img style="width: 150px" class="mb-10" src="{{ asset('alumifi-logo2.png') }}">
+                            </a>
                             <div class="pb-10 pb-lg-15">
                                 <h3 class="font-weight-bolder text-dark display5"> Create Account </h3>
                                 <div class="text-white font-weight-bold font-size-h4"> Already have an aLumifi account?

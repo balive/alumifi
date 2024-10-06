@@ -61,7 +61,9 @@
                 <!--begin::Signin-->
                 <div class="login-form">
                     <!--begin::Form-->
-                    <img style="width: 150px" class="mb-10" src="{{ asset('alumifi-logo2.png') }}">
+                    <a href="{{ URL::to('/') }}">
+                        <img style="width: 150px" class="mb-10" src="{{ asset('alumifi-logo2.png') }}">
+                    </a>
 
                     <!--begin::Title-->
                     <div class="pb-10 pb-lg-15">
@@ -95,8 +97,8 @@
                             <input id="password" type="password" style="padding: 12px"  class="form-control h-auto py-7 px-6 rounded-lg border-0 @error('password') is-invalid @enderror"  name="password" required autocomplete="current-password">
                             @error('password')
                             <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
+                                <strong>{{ $message }}</strong>
+                            </span>
                             @enderror
 
                         </div>

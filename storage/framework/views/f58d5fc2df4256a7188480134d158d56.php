@@ -312,8 +312,6 @@
 
 
 
-
-
         }
         @media (max-width: 992px){
 
@@ -325,6 +323,12 @@
             #bodyContainer{
 
                 height: 80% !important;
+            }
+
+
+            .recheck_section{
+
+                display: none;
             }
 
 

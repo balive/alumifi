@@ -138,7 +138,7 @@
                                     <!--end::Svg Icon-->
                                 </span>
 
-                            Same URL Re-Check
+                            Change Bias
                         </a>
                     </div>
                     <!--end::Page Title-->
@@ -254,8 +254,9 @@
 
                                                     <option >Scientific</option>
                                                     <option >Green</option>
-                                                    <option >Critical</option>
+                                                    <option >Skeptical</option>
                                                     <option >Crypto</option>
+                                                    <option >Jewish</option>
                                                 </select>
                                             </div>
 
@@ -300,8 +301,10 @@
 
                                                                    <span class="svg-icon svg-icon-sm svg-icon-white mr-3">
                                                                         <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Add-user.svg-->
-                                                                        <i style="font-size: 16px" class="flaticon2-gear  text-white"></i>
-                                                                                                           <!--end::Svg Icon-->
+                                                                        {{--<i style="font-size: 16px" class="flaticon2-gear  text-white"></i>--}}
+                                                                       <!--end::Svg Icon-->
+                                                                       <img style="    width: 119px;
+    margin-bottom: 2px;" src="{{ asset('gear.png') }}">
                                                                     </span>
                                                                 </button>
                                                                 {{--<button class="linkedin-btn" data-target="message_{{ $loop->index }}" style="position: absolute; left: 90px;  background-color: transparent; color: white; border: none; border-radius: 0%; padding: 2px; cursor: pointer;">--}}
@@ -332,7 +335,7 @@
                                             </span>
                                         </div>
                                     </div>
-                                    <span class=" text-muted">aLumifi.ai can make mistakes. Check important info.</span>
+                                    <span class=" text-muted">aLumifi can make mistakes. Check important info.</span>
                                     <!--begin::Compose-->
                                 </div>
                                 <!--end::Footer-->
@@ -381,8 +384,10 @@
 
                             <option >Scientific</option>
                             <option >Green</option>
-                            <option >Critical</option>
+                            <option >Skeptical</option>
                             <option >Crypto</option>
+                            <option >Jewish</option>
+
                         </select>
                     </div>
                     <div class="card-footer">
@@ -390,6 +395,7 @@
                     </div>
                     <!--end::Form-->
                 </div>
+
             </div>
         </div>
     </div>
@@ -718,8 +724,8 @@
                                     '                                                </div>');
 
                                 if(rewrite && bias === "0"){
-                                    $('#add_item').modal('show');
-                                    $('#exampleModalLabel').html("STEP 2: Rework Article from a New Perspective")
+                                    // $('#add_item').modal('show');
+                                    $('#exampleModalLabel').html("Rework Article from a New Perspective")
                                     $('#btnFetch_edit').html("START NEW PERSPECTIVE!");
                                     $('.url_input_edit').val($('.url_input').val())
                                     $('.recheck_section').removeClass('d-none');
@@ -809,7 +815,9 @@
 
                     <button href="#" class="changePerBtn"   data-toggle="modal" data-target="#add_item" style="position: absolute; left: 73px;bottom:-19px;  background-color: transparent; color: white; border: none; border-radius: 0%; padding: 0px; cursor: pointer;">
                         <span class="svg-icon svg-icon-sm svg-icon-white mr-3">
-                            <i style="font-size: 16px" class="flaticon2-gear  text-white"></i>
+                            <img style="    width: 119px;
+    margin-bottom: 2px;" src="{{ asset('gear.png') }}">
+
                         </span>
                     </button>
 

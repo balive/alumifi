@@ -95,13 +95,109 @@
 
                                     </li>
                                 @endforeach
+                                @else
+                                    <li class="menu-item" aria-haspopup="true">
+                                        <a href="{{ route('login') }}" class="text-muted   font-weight-bold side-link">
+                                            <div  class="list-item hoverable p-2 p-lg-3 mb-1 mt-2 @if(request()->segment(1)=='') active @endif ">
+                                                <div class="d-flex align-items-center">
+                                                    <!--begin::Symbol-->
+                                                    <div class=" symbol-40 symbol-light mr-7">
+                                                    <span class="symbol-label ">
+                                                        <span class="svg-icon svg-icon-xl  ">
+                                                                <i style="font-size: 1.7rem" class=" flaticon-user"></i>
+                                                            </span>
+
+                                                    </span>
+                                                    </div>
+                                                    <!--end::Symbol-->
+                                                    <!--begin::Text-->
+                                                    <div class="d-flex flex-column flex-grow-1 mr-2">
+
+                                                       <span class=" font-size-h6 mb-0">
+                                                         Sign in
+                                                        </span>
+
+                                                    </div>
+                                                    <!--begin::End-->
+                                                </div>
+                                            </div>
+                                            <!--end::Item-->
+                                        </a>
+
+                                    </li>
                                 @endauth()
 
+                                <li class="menu-item" aria-haspopup="true">
+                                    <a href="mailto:info@alumifi.ai" class="text-muted   font-weight-bold side-link">
+                                        <div  class="list-item hoverable p-2 p-lg-3 mb-1 mt-2  ">
+                                            <div class="d-flex align-items-center">
+                                                <!--begin::Symbol-->
+                                                <div class=" symbol-40 symbol-light mr-7">
+                                                    <span class="symbol-label ">
+
+                                                        <span class="svg-icon svg-icon-xl  ">
+                                                                <i style="font-size: 1.7rem" class=" flaticon-mail"></i>
+                                                            <!--end::Svg Icon-->
+                                                            </span>
+                                                    </span>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Text-->
+                                                <div class="d-flex flex-column flex-grow-1 mr-2">
+
+                                                     <span class=" font-size-h6 mb-0">
+                                                         Contact us
+                                                     </span>
+
+
+                                                </div>
+                                                <!--begin::End-->
+                                            </div>
+                                        </div>
+                                        <!--end::Item-->
+                                    </a>
+
+                                </li>
+
+                                <li class="menu-item" aria-haspopup="true">
+                                    <a  target="_blank" href="https://x.com/alumifi" class="text-muted   font-weight-bold side-link">
+                                        <div  class="list-item hoverable p-2 p-lg-3 mb-1 mt-2  ">
+                                            <div class="d-flex align-items-center">
+                                                <!--begin::Symbol-->
+                                                <div class=" symbol-40 symbol-light mr-10">
+                                                    <span class="symbol-label ">
+
+                                                        <span class="svg-icon svg-icon-xl  ">
+                                                            <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/x-social-media-white-icon.png" width="13" height="13" alt="X Social Media White icon in SVG, PNG formats" title="X Social Media White icon">
+
+                                                            <!--end::Svg Icon-->
+                                                            </span>
+                                                    </span>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Text-->
+                                                <div class="d-flex flex-column flex-grow-1 mr-2">
+
+                                                     <span class=" font-size-h6 mb-0">
+                                                         alumifi
+                                                     </span>
+
+
+                                                </div>
+                                                <!--begin::End-->
+                                            </div>
+                                        </div>
+                                        <!--end::Item-->
+                                    </a>
+
+                                </li>
 
 
 
 
-                               @if(isset(auth()->user()->type) && auth()->user()->type == 'admin')
+
+
+                            @if(isset(auth()->user()->type) && auth()->user()->type == 'admin')
 
 
 

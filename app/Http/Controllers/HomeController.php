@@ -167,7 +167,7 @@ class HomeController extends Controller
             $prompt = "You are an expert $bias expert and consultant who is biased towards $bias, you are helpful and you answer only the questions related to the $bias bias , please re-write this article from thr $bias bias perspective 
                         here is the article : [$information]
                         
-                        - provide assessment from the original article a in bullet point list ( make bias in CAPS ), to ascertain its current bias in this regard, provide the bias ratings in percentage with nice intro at the beginning...here is the list of the all the biases u should consider and provide how close the article is to each bias in percentage, and make sure that total percentage for all the perspectives is 100%:
+                        - provide assessment from the original article a in bullet point list ( make sure bias names are always displayed in CAPS letters ), to ascertain its current bias in this regard, provide the bias ratings in percentage with nice intro at the beginning...here is the list of the all the biases u should consider and provide how close the article is to each bias in percentage, and make sure that the sum of percentage for all the perspective ratings is 100% (do no mention that ):
                          Left (for context : liberal, democrat)
                         Socialist
                         Libertarian
@@ -181,6 +181,8 @@ class HomeController extends Controller
                         Critical Thinking (for context :  conspiracy)
                         Green (for context : environmentalist)
                         Crypto (for context : bitcoin)
+
+                        - do not display the bias context between the brackets this is only for you to know 
 
                         - do an actual critique of this article, to judge it, bring that full $bias bias to that article, and explain according to $bias that his position is not looked upon favorably and provide a nice intro before diving deeper...
 
@@ -197,7 +199,7 @@ class HomeController extends Controller
             $prompt = " please re-write this article  
                         here is the article : [$information]
                         
-                        - provide assessment from the original article a in bullet point list ( make bias in CAPS ), to ascertain its current bias in this regard, provide the bias ratings in percentage with nice intro at the beginning...here is the list of the all the biases u should consider and provide how close the article is to each bias in percentage, and make sure that total percentage for all the perspectives is 100%:
+                        - provide assessment from the original article a in bullet point list ( make sure bias names are always displayed in CAPS letters ), to ascertain its current bias in this regard, provide the bias ratings in percentage with nice intro at the beginning...here is the list of the all the biases u should consider and provide how close the article is to each bias in percentage, and make sure that the sum of percentage for all the perspective ratings is 100% (do no mention that ):
                          Left (for context : liberal, democrat)
                         Socialist
                         Libertarian
@@ -212,8 +214,10 @@ class HomeController extends Controller
                         Green (for context : environmentalist)
                         Crypto (for context : bitcoin)
                         Jewish 
+                        
 
 
+                        - do not display the bias context between the brackets this is only for you to know 
                         - display the heading of the assessment with this html code <h4 style='color: #019cc1 !important;'>heading name</h4> and provide a nice intro underneath the heading  before diving deeper 
                         
                         (please return your answer in organized html code and use these tags <h6> for heading , <p> for sentences , & <br> between each sentence if needed)

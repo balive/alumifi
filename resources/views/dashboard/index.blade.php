@@ -42,6 +42,15 @@
 
 
 
+
+        @media (max-width: 992px){
+
+          .human-entry{
+
+              z-index: 99!important;
+          }
+        }
+
         @endif
 
 
@@ -655,7 +664,7 @@
 
 
                       var userMessageHtml = `<div class="d-flex flex-column mt-7 mb-7 align-items-end">
-                                    <div style="background: #2f2f2f; color: white;border-radius: 4% !important;z-index: 9999" class="mt-2 rounded p-5 font-weight-bold font-size-lg text-left max-w-600px">${text}</div>
+                                    <div style="background: #2f2f2f; color: white;border-radius: 4% !important;z-index: 9999" class="human-entry mt-2 rounded p-5 font-weight-bold font-size-lg text-left max-w-600px">${text}</div>
                                 </div>`;
 
 

@@ -4,10 +4,25 @@
 <head>
     <meta charset="utf-8" />
     <title>aLumifi AI Bias Checking app</title>
-    <meta name="description" content="Updates and statistics" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="canonical" href="https://keenthemes.com/metronic" />
 
+    <link rel="canonical" href="https://alumifi.ai/" />
+    <meta property="og:url" content="https://alumifi.ai/"/>
+    <meta itemprop="url" content="https://alumifi.ai/"/>
+    <meta name="twitter:url" content="https://alumifi.ai/"/>
+    <meta name="description" content="aLumifi.AI is your cognitive compass, guiding you through the maze of online content with personalized bias analysis and critical thinking tools. Imagine having a personal AI assistant that doesn't just find information but helps you understand it from every angle." />
+    <meta property="og:site_name" content="aLumifi.ai" />
+    <meta property="og:title" content="alumifi.ai - check news bias and combat misinformation"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="aLumifi.AI is your cognitive compass, guiding you through the maze of online content with personalized bias analysis and critical thinking tools. Imagine having a personal AI assistant that doesn't just find information but helps you understand it from every angle."/>
+    <meta itemprop="name" content="alumifi.ai - check news bias and combat misinformation"/>
+    <meta itemprop="description" content="aLumifi.AI is your cognitive compass, guiding you through the maze of online content with personalized bias analysis and critical thinking tools. Imagine having a personal AI assistant that doesn't just find information but helps you understand it from every angle."/>
+    <meta name="twitter:title" content="alumifi.ai - check news bias and combat misinformation"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:description" content="aLumifi.AI is your cognitive compass, guiding you through the maze of online content with personalized bias analysis and critical thinking tools. Imagine having a personal AI assistant that doesn't just find information but helps you understand it from every angle."/>
+    <meta property="og:image" content="https://content.app-sources.com/s/279533761092985901/uploads/Images/aLumifi.AI_pitch_deck-4069607.jpg" />
+    <meta itemprop="image" content="https://content.app-sources.com/s/279533761092985901/uploads/Images/aLumifi.AI_pitch_deck-4069607.jpg" />
+    <meta name="twitter:image" content="https://content.app-sources.com/s/279533761092985901/uploads/Images/aLumifi.AI_pitch_deck-4069607.jpg"/>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -330,10 +345,6 @@
 
                 display: none;
             }
-
-
-
-
 
         }
 

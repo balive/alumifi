@@ -1,5 +1,5 @@
 <div class="btn-group ml-2">
-        <a type="button" class=" btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2 btn @if(auth()->user()->type == 'client') btn-dark @else btn-primary @endif font-weight-bold dropdown-toggle dropdown-toggle-split " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a style="border: 1px solid #019cc1" type="button" class=" btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2 btn @if(auth()->user()->type == 'client') btn-dark @else btn-primary @endif font-weight-bold dropdown-toggle dropdown-toggle-split " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="svg-icon svg-icon-lg">
                             <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Add-user.svg-->
                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -25,6 +25,18 @@
 
                     </span>
                         <span class="navi-text">Profile</span>
+                    </a>
+                </li>
+
+                <li class="navi-item">
+                    <a href="{{ route('dashboard') }}" class="navi-link">
+
+                    <span class="navi-icon">
+<i class="flaticon2-pen"></i>
+
+
+                    </span>
+                        <span class="navi-text">New URL Check</span>
                     </a>
                 </li>
 

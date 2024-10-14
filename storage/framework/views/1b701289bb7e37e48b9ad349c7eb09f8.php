@@ -248,6 +248,7 @@
                                                     <option >Right </option>
 
                                                     <option >Christian</option>
+                                                    <option >Jewish</option>
                                                     <option >Islam </option>
                                                     <option >Buddhist </option>
                                                     <option >Agnostic </option>
@@ -256,7 +257,6 @@
                                                     <option >Green</option>
                                                     <option >Skeptical</option>
                                                     <option >Crypto</option>
-                                                    <option >Jewish</option>
                                                 </select>
                                             </div>
 
@@ -276,7 +276,7 @@
 
                                             <?php if(isset($conversation)): ?>
                                                 <?php $__currentLoopData = $conversation->messages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $conversation_message): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <div class="d-flex flex-column mb-5 align-items-end">
+                                                    <div class="d-flex flex-column mt-7 mb-7 align-items-end">
                                                         <div style="background: #2f2f2f; color: white;border-radius: 4% !important;" class="mt-2 rounded p-5   font-weight-bold font-size-lg text-left max-w-600px"><?php echo $conversation_message['question']; ?></div>
                                                     </div>
 
@@ -302,8 +302,10 @@
 
                                                                    <span class="svg-icon svg-icon-sm svg-icon-white mr-3">
                                                                         <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Add-user.svg-->
-                                                                        <i style="font-size: 16px" class="flaticon2-gear  text-white"></i>
+                                                                        
                                                                        <!--end::Svg Icon-->
+                                                                       <img style="    width: 119px;
+    margin-bottom: 2px;" src="<?php echo e(asset('gear.png')); ?>">
                                                                     </span>
                                                                 </button>
                                                                 
@@ -321,7 +323,7 @@
                                 </div>
                                 <!--end::Body-->
                                 <!--begin::Footer-->
-                                <div class="align-items-center  btn_send_wrap <?php if(request()->segment(3) == ''): ?> d-none <?php endif; ?>" style="">
+                                <div class="align-items-center  btn_send_wrap <?php if(request()->segment(3) == ''): ?> d-none <?php endif; ?>" style="z-index: 9999">
                                     <!--begin::Compose-->
                                     <div class="input-group mb-3">
                                         <input type="text" style="border:none ;height: 57px;    padding: 21px; border-top-left-radius: 17px; border-bottom-left-radius: 17px; background: #2f2f2f;  color: white;"  class="custom-placeholder gpt_msg_input form-control" placeholder="Ask more on this new perspective on this article">
@@ -377,6 +379,7 @@
                             <option >Right </option>
 
                             <option >Christian</option>
+                            <option >Jewish</option>
                             <option >Islam </option>
                             <option >Buddhist </option>
                             <option >Agnostic </option>
@@ -486,7 +489,7 @@
 
                             $('#scraped_data').val(response.data);
 
-                            _sendGPTMessage(`aLumified <a target="_blank" href="${url}">URL</a> review below as from the ${bias} perspective` , bias, 1);
+                            _sendGPTMessage(`aLumified <a  target="_blank" href="${url}">URL</a> review below as from the ${bias} perspective` , bias, 1);
                             // _sendGPTMessage(`<!--aLumified <a target="_blank" href="${url}">URL</a>-->` , bias, 1);
 
                             $('#btnFetch_edit').html('Fetch data');
@@ -652,8 +655,8 @@
                         '                                                </div>');
 
 
-                      var userMessageHtml = `<div class="d-flex flex-column mb-5 align-items-end">
-                                    <div style="background: #2f2f2f; color: white;border-radius: 4% !important;" class="mt-2 rounded p-5 font-weight-bold font-size-lg text-left max-w-600px">${text}</div>
+                      var userMessageHtml = `<div class="d-flex flex-column mt-7 mb-7 align-items-end">
+                                    <div style="background: #2f2f2f; color: white;border-radius: 4% !important;z-index: 9999" class="mt-2 rounded p-5 font-weight-bold font-size-lg text-left max-w-600px">${text}</div>
                                 </div>`;
 
 
@@ -679,7 +682,7 @@
 
                                </div>
                            </div>
-                           <div class="d-flex flex-column mb-5 align-items-start">
+                           <div class="d-flex flex-column mt-7 mb-7 align-items-start">
                                <div style="color:white;background: transparent" class="mt-2 rounded p-5 font-weight-bold font-size-lg text-left max-w-600px">
                            </div>
                        </div>`;
@@ -814,7 +817,8 @@
 
                     <button href="#" class="changePerBtn"   data-toggle="modal" data-target="#add_item" style="position: absolute; left: 73px;bottom:-19px;  background-color: transparent; color: white; border: none; border-radius: 0%; padding: 0px; cursor: pointer;">
                         <span class="svg-icon svg-icon-sm svg-icon-white mr-3">
-                            <img src="<?php echo e(asset('gear.png')); ?>">
+                            <img style="    width: 119px;
+    margin-bottom: 2px;" src="<?php echo e(asset('gear.png')); ?>">
 
                         </span>
                     </button>

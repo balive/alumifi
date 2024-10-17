@@ -396,7 +396,6 @@
                             <option >Green</option>
                             <option >Skeptical</option>
                             <option >Crypto</option>
-                            <option >Jewish</option>
 
                         </select>
                     </div>
@@ -500,7 +499,7 @@
                             _sendGPTMessage(`aLumified <a  target="_blank" href="${url}">URL</a> review below as from the ${bias} perspective` , bias, 1);
                             // _sendGPTMessage(`<!--aLumified <a target="_blank" href="${url}">URL</a>-->` , bias, 1);
 
-                            $('#btnFetch_edit').html('Fetch data');
+                            $('#btnFetch_edit').html('Change Bias');
 
                             $('.data_section').addClass('d-none');
 
@@ -556,7 +555,7 @@
                             // _sendGPTMessage(`aLumified <a target="_blank" href="${url}">URL</a> review below as from the ${bias} perspective` , bias, 1);
                             _sendGPTMessage(`aLumified <a target="_blank" href="${url}">URL</a>` , bias, 1);
 
-                            $('#btnFetch').html('Fetch data');
+                            $('#btnFetch').html('Change Bias');
 
                             $('.data_section').addClass('d-none');
 

@@ -42,6 +42,15 @@
 
 
 
+
+        @media (max-width: 992px){
+
+          .human-entry{
+
+              z-index: 99!important;
+          }
+        }
+
         <?php endif; ?>
 
 
@@ -492,7 +501,7 @@
                             _sendGPTMessage(`aLumified <a  target="_blank" href="${url}">URL</a> review below as from the ${bias} perspective` , bias, 1);
                             // _sendGPTMessage(`<!--aLumified <a target="_blank" href="${url}">URL</a>-->` , bias, 1);
 
-                            $('#btnFetch_edit').html('Fetch data');
+                            $('#btnFetch_edit').html('Change Bias');
 
                             $('.data_section').addClass('d-none');
 
@@ -548,7 +557,7 @@
                             // _sendGPTMessage(`aLumified <a target="_blank" href="${url}">URL</a> review below as from the ${bias} perspective` , bias, 1);
                             _sendGPTMessage(`aLumified <a target="_blank" href="${url}">URL</a>` , bias, 1);
 
-                            $('#btnFetch').html('Fetch data');
+                            $('#btnFetch').html('Change Bias');
 
                             $('.data_section').addClass('d-none');
 
@@ -656,7 +665,7 @@
 
 
                       var userMessageHtml = `<div class="d-flex flex-column mt-7 mb-7 align-items-end">
-                                    <div style="background: #2f2f2f; color: white;border-radius: 4% !important;z-index: 9999" class="mt-2 rounded p-5 font-weight-bold font-size-lg text-left max-w-600px">${text}</div>
+                                    <div style="background: #2f2f2f; color: white;border-radius: 4% !important;z-index: 9999" class="human-entry mt-2 rounded p-5 font-weight-bold font-size-lg text-left max-w-600px">${text}</div>
                                 </div>`;
 
 

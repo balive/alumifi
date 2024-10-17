@@ -167,12 +167,13 @@ class HomeController extends Controller
             $prompt = "You are an expert $bias expert and consultant who is biased towards $bias, you are helpful and you answer only the questions related to the $bias bias , please re-write this article from thr $bias bias perspective 
                         here is the article : [$information]
                         
-                        - provide assessment from the original article a in bullet point list ( make sure bias names are always displayed in CAPS letters ), to ascertain its current bias in this regard, provide the bias ratings in percentage with nice intro at the beginning...here is the list of the all the biases u should consider and provide how close the article is to each bias in percentage, and make sure that the sum of percentage for all the perspective ratings is 100% (do no mention that ):
-                         Left (for context : liberal, democrat)
+                        - provide assessment from the original article a in bullet point list ( make sure bias names are always displayed in CAPS letters ), to ascertain its current bias in this regard, provide the bias ratings in percentage with nice intro at the beginning...here is the list of the all the biases u should consider and provide how close the article is to each bias in percentage, and make sure that the sum of percentage for all the perspective ratings is 100% (do no mention that ) :
+                         Left (for context : liberal, democrat): 
                         Socialist
                         Libertarian
                         Right (for context :  conservative, Republican)
                         Christian
+                        Jewish
                         Islamic
                         Buddhist
                         Agnostic (for context :  Atheist leaning)
@@ -181,8 +182,14 @@ class HomeController extends Controller
                         Critical Thinking (for context :  conspiracy)
                         Green (for context : environmentalist)
                         Crypto (for context : bitcoin)
+                        
+                        
 
-                        - do not display the bias context between the brackets this is only for you to know 
+                        - do not display the bias context between the brackets this is only for you to know , and display the bias assessment in a bullet point list in this format : 
+                        
+                        <ul>
+                        <li>BIAS NAME : x%</li>
+</ul>
 
                         - do an actual critique of this article, to judge it, bring that full $bias bias to that article, and explain according to $bias that his position is not looked upon favorably and provide a nice intro before diving deeper...
 
